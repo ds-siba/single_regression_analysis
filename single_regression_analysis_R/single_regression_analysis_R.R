@@ -20,3 +20,5 @@ coef(model)
 
 # グラフ
 abline(model)
+
+R2(pred = )
