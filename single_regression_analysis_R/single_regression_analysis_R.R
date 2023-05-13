@@ -1,3 +1,4 @@
+# ライブラリ読み込み
 library(tidyverse)
 
 # csvファイルの読み込み
