@@ -1,3 +1,5 @@
+library(tidyverse)
+
 # csvファイルの読み込み
 df <- read.csv("data/advertising_data.csv", fileEncoding ="cp932")
 
