@@ -1,8 +1,9 @@
 # ライブラリ読み込み
 library(tidyverse)
+library(caret)
 
 # csvファイルの読み込み
-df <- read.csv("data/advertising_data.csv", fileEncoding ="cp932")
+data <- read.csv("data/advertising_data.csv", fileEncoding ="cp932")
 
 # 散布図
 X = df$ad
@@ -21,4 +22,15 @@ coef(model)
 # グラフ
 abline(model)
 
-R2(pred = )
+# 決定係数でモデルの精度を確認
+summary(model)$r.squared
+
+# 検定結果の表示
+summary(model)
+
+# p値
+summary(model)$coefficients[,4]
+
+# 95%信頼区間
+conf_int <- confint(model, level=0.95)
+print(conf_int)
