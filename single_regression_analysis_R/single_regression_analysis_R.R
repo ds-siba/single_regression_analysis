@@ -3,7 +3,7 @@ library(tidyverse)
 library(caret)
 
 # csvファイルの読み込み
-data <- read.csv("data/advertising_data.csv", fileEncoding ="cp932")
+df<- read.csv("data/advertising_data.csv", fileEncoding ="cp932")
 
 # 散布図
 X = df$ad
@@ -19,9 +19,6 @@ model <- lm(y ~ X)
 # 回帰係数と切片を表示
 coef(model)
 
-# グラフ
-abline(model)
-
 # 決定係数でモデルの精度を確認
 summary(model)$r.squared
 
@@ -34,3 +31,9 @@ summary(model)$coefficients[,4]
 # 95%信頼区間
 conf_int <- confint(model, level=0.95)
 print(conf_int)
+
+# 予測
+predict(model, df)
+
+#回帰式を描画
+abline(model)
